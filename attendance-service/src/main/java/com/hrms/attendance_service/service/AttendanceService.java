@@ -39,6 +39,17 @@ public EmployeeDTO getEmployeeById(Long empId) {
     return restTemplate.getForObject(url, EmployeeDTO.class);
 }
 
+    // Update attendance
+    public Attendance updateAttendance(Attendance attendance) {
+        return repository.save(attendance); // save updates if ID exists
+    }
+
+    // Delete attendance
+    public void deleteAttendance(Long id) {
+        repository.deleteById(id);
+    }
+
+
 
 //    public AttendanceResponse getAttendanceByEmpId(Long empId) {
 //        Attendance attendance = repository.findByEmpId(empId);

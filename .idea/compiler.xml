@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="attendance-service" />
-        <module name="employee-service" />
         <module name="payroll" />
+        <module name="attendance-service" />
+        <module name="eureka" />
+        <module name="employee-service" />
       </profile>
     </annotationProcessing>
   </component>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="attendance-service" options="-parameters" />
       <module name="employee-service" options="-parameters" />
+      <module name="eureka" options="-parameters" />
       <module name="payroll" options="-parameters" />
     </option>
   </component>

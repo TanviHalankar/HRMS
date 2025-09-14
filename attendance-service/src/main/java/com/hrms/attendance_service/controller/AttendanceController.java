@@ -31,9 +31,21 @@ public class AttendanceController {
         return service.getEmployeeById(empId);
     }
 
-    @GetMapping("/records/{empId}")
+    @GetMapping("/{empId}")
     public List<Attendance> getAttendance(@PathVariable Long empId) {
         return service.getAttendanceByEmpId(empId);
+    }
+    // UPDATE attendance by ID
+    @PutMapping("/{id}")
+    public Attendance updateAttendance(@PathVariable Long id, @RequestBody Attendance attendance) {
+        attendance.setId(id);  // ensure ID is set
+        return service.updateAttendance(attendance);
+    }
+
+    // DELETE attendance by ID
+    @DeleteMapping("/{id}")
+    public void deleteAttendance(@PathVariable Long id) {
+        service.deleteAttendance(id);
     }
 //    @GetMapping("/emp/{empId}")
 //    public AttendanceResponse getAttendanceByEmpId(@PathVariable Long empId) {
