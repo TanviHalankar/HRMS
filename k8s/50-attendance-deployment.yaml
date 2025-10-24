@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: attendance-service
+  namespace: hrms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: attendance-service
+  template:
+    metadata:
+      labels:
+        app: attendance-service
+    spec:
+      containers:
+      - name: attendance-service
+        image: tanvihalankar/attendance-service:latest
+        ports:
+        - containerPort: 8083
+        env:
+        - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+          value: http://eureka-server:8761/eureka/
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql:3306/attendance_db
+        - name: SPRING_DATASOURCE_USERNAME
+          value: root
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: root
+        - name: SPRING_CLOUD_CONFIG_URI
+          value: http://config-server:8888

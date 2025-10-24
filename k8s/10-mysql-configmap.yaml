@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+  namespace: hrms
+data:
+  create-multiple-dbs.sql: |
+    CREATE DATABASE IF NOT EXISTS employee_db;
+    CREATE DATABASE IF NOT EXISTS attendance_db;
+    CREATE DATABASE IF NOT EXISTS payroll_db;
+
+
+
+
